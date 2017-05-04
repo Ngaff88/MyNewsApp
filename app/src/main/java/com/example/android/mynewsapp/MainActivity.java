@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         mAdapter.clear();
     }
     private static final int NEWS_LOADER_ID = 1;
-    private static final String USGS_REQUEST_URL = "https://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=test";
+    private static final String USGS_REQUEST_URL = "https://content.guardianapis.com/search?q=bitcoin&api-key=test";
     public static final String LOG_TAG = MainActivity.class.getName();
     private NewsAdapter mAdapter;
 

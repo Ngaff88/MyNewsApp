@@ -19,15 +19,15 @@ public class News {
     private String mTitle;
 
 
-    private  long mTime;
+    private  String mCat;
 
     private String mUrl;
 
 
-    public News(String vTitle,long vTime,String vUrl )
+    public News(String vTitle,String vCat,String vUrl )
     {
         mTitle = vTitle;
-        mTime = vTime;
+        mCat = vCat;
         mUrl = vUrl;
     }
 
@@ -41,19 +41,10 @@ public class News {
     /**
      * Get the image resource ID
      */
-    public long getTimeInMilliseconds() {
-        return mTime;
+    public String getCategory() {
+        return mCat;
     }
 
-    public String formatDate(Date dateObject) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);
-    }
-
-    public String formatTime(Date dateObject) {
-        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
-        return timeFormat.format(dateObject);
-    }
 
     public String getUrl() {
         return mUrl;

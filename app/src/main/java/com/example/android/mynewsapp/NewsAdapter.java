@@ -62,20 +62,9 @@ class NewsAdapter extends ArrayAdapter<News> {
         News currentNews = getItem(position);
 
 
-
-
-
-
-
-        Date dateObject = new Date(currentNews.getTimeInMilliseconds());
-
-        TextView dateTextView = (TextView) listItemView.findViewById(R.id.date);
-        String formattedDate = currentNews.formatDate(dateObject);
-        dateTextView.setText(formattedDate);
-
-        TextView timeTextView = (TextView) listItemView.findViewById(R.id.time);
-        String formattedTime = currentNews.formatTime(dateObject);
-        timeTextView.setText(formattedTime);
+        String category = currentNews.getCategory();
+        TextView catTextView = (TextView) listItemView.findViewById(R.id.article_category);
+        catTextView.setText(category);
 
         String title = currentNews.getTitle();
         TextView titleView = (TextView) listItemView.findViewById(R.id.article_title);

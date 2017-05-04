@@ -118,31 +118,32 @@ final class QueryUtils {
 
             // Extract the JSONArray associated with the key called "response",
             // which represents a list of features (or news).
-            JSONArray newsArray = baseJsonResponse.getJSONArray("response");
+            JSONObject newsObject = baseJsonResponse.getJSONObject("response");
+            // for that article.
+            JSONArray properties = newsObject.getJSONArray("results");
 
             // For each Article in the newsArray, create an {@link News} object
-            for (int i = 0; i < newsArray.length(); i++) {
+            for (int i = 0; i < newsObject.length(); i++) {
 
                 // Get a single article at position i within the list of articles
-                JSONObject currentNews = newsArray.getJSONObject(i);
+                JSONObject currentNews = properties.getJSONObject(i);
 
                 // For a given article, extract the JSONObject associated with the
                 // key called "properties", which represents a list of all properties
-                // for that article.
-                JSONObject properties = currentNews.getJSONObject("results");
+
 
                 // Extract the value for the key called "mag"
-                String title = properties.getString("webTitle");
+                String title = currentNews.getString("webTitle");
 
                 // Extract the value for the key called "time"
-                long time = properties.getLong("webPublicationDate");
+                String category = currentNews.getString("sectionName");
 
                 // Extract the value for the key called "url"
-                String url = properties.getString("webUrl");
+                String url = currentNews.getString("webUrl");
 
                 // Create a new {@link News} object with the magnitude, location, time,
                 // and url from the JSON response.
-                News news = new News(title, time, url);
+                News news = new News(title, category, url);
 
                 // Add the new {@link News} to the list of articles.
                 theNews.add(news);
