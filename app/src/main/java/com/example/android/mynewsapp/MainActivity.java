@@ -16,11 +16,9 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Loader;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.key;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<News>> {
     /**
